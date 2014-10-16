@@ -27,7 +27,8 @@ directory.Router = Backbone.Router.extend({
 
     routes: {
         "":                 "home",
-        "contact":          "contact",
+        "contact":           "contact",
+         "about":             "about",
         "employees/:id":    "employeeDetails"
     },
 
@@ -55,6 +56,7 @@ directory.Router = Backbone.Router.extend({
     },
 
     contact: function () {
+        alert(55);
         if (!directory.contactView) {
             directory.contactView = new directory.ContactView();
             directory.contactView.render();
@@ -63,7 +65,16 @@ directory.Router = Backbone.Router.extend({
         directory.shellView.selectMenuItem('contact-menu');
     },
 
-    employeeDetails: function (id) {
+     about: function () {
+        alert(56);
+        if (!directory.aboutView) {
+            directory.aboutView = new directory.AboutusView();
+            directory.aboutView.render();
+        }
+        this.$content.html(directory.aboutView.el);
+        directory.shellView.selectMenuItem('about-menu');
+    },
+   employeeDetails: function (id) {
         var employee = new directory.Employee({id: id});
         var self = this;
         employee.fetch({
@@ -80,7 +91,7 @@ directory.Router = Backbone.Router.extend({
 });
 
 $(document).on("ready", function () {
-    directory.loadTemplates(["HomeView", "ContactView", "ShellView", "EmployeeView", "EmployeeSummaryView", "EmployeeListItemView"],
+    directory.loadTemplates(["HomeView", "ContactView", "ShellView", "EmployeeView", "EmployeeSummaryView", "EmployeeListItemView","AboutusView"],
         function () {
             directory.router = new directory.Router();
             Backbone.history.start();
