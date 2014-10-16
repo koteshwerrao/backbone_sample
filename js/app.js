@@ -56,7 +56,7 @@ directory.Router = Backbone.Router.extend({
     },
 
     contact: function () {
-        alert(55);
+        //alert(55);
         if (!directory.contactView) {
             directory.contactView = new directory.ContactView();
             directory.contactView.render();
@@ -66,7 +66,7 @@ directory.Router = Backbone.Router.extend({
     },
 
      about: function () {
-        alert(56);
+        //alert(56);
         if (!directory.aboutView) {
             directory.aboutView = new directory.AboutusView();
             directory.aboutView.render();
